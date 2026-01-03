@@ -1,71 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurora Sleep Project</title>
-
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PMJT2WC5');</script>
+    })(window,document,'script','dataLayer','GTM-HGRL9BVRC6');</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora Sleep | Professional Sleep Analysis</title>
+    
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; color: #333; }
-        header { text-align: center; padding: 50px 20px; background-color: #f4f4f9; }
-        h1 { color: #2c3e50; }
-        .content { max-width: 800px; margin: 0 auto; padding: 20px; }
-        
-        /* Button Style */
-        .btn-audit {
-            display: inline-block;
-            background-color: #007bff;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 20px;
-            cursor: pointer;
-            border: none;
-        }
-        .btn-audit:hover { background-color: #0056b3; }
-        .spacer { height: 1500px; background: linear-gradient(#fff, #e6e6e6); margin-top: 20px; }
-        footer { text-align: center; padding: 20px; margin-top: 50px; border-top: 1px solid #ddd; }
+        /* PROPER STYLING TO MAKE IT LOOK LIKE A REAL WEBSITE */
+        :root { --primary: #1a237e; --secondary: #3f51b5; --accent: #00bcd4; --light: #f5f5f5; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; line-height: 1.6; color: #333; background: var(--light); }
+        header { background: var(--primary); color: white; padding: 2rem 1rem; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .container { max-width: 800px; margin: auto; padding: 2rem; }
+        .hero { text-align: center; padding: 3rem 1rem; background: white; border-radius: 8px; margin-top: -2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { margin: 0; font-size: 2.5rem; }
+        .btn { display: inline-block; background: var(--accent); color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.1rem; transition: transform 0.2s, background 0.2s; border: none; cursor: pointer; }
+        .btn:hover { background: #00acc1; transform: translateY(-2px); }
+        section { margin: 40px 0; padding: 20px; background: white; border-radius: 8px; }
+        footer { text-align: center; padding: 2rem; font-size: 0.9rem; color: #666; }
+        /* For scrolling demonstration */
+        .spacer { height: 500px; background: linear-gradient(to bottom, #fff, #e8eaf6); margin: 20px 0; border-left: 5px solid var(--accent); display: flex; align-items: center; justify-content: center; font-style: italic; color: #999; }
     </style>
 </head>
 <body>
-
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMJT2WC5"
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-HGRL9BVRC6"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
     <header>
-        <h1>Aurora Sleep: Improve Your Rest</h1>
-        <p>Discover the secrets to better sleep hygiene and performance.</p>
-        
-        <button class="btn-audit" onclick="window.dataLayer = window.dataLayer || []; window.dataLayer.push({'event': 'sleep_audit_click', 'click_text': 'Start Audit'}); alert('Audit Started! (This alert confirms the button works)');">
-            Start Sleep Audit
-        </button>
+        <h1>Aurora Sleep Project</h1>
+        <p>Advanced Rest Analytics & Optimization</p>
     </header>
 
-    <div class="content">
-        <h2>Why Sleep Matters</h2>
-        <p>Sleep is the foundation of good health. Scroll down to learn more about our methodology.</p>
-        
-        <div class="spacer">
-            <p style="text-align: center; padding-top: 50px;">(Scroll down for tracking...)</p>
-            <p style="text-align: center; padding-top: 400px;">25% Depth Area</p>
-            <p style="text-align: center; padding-top: 400px;">50% Depth Area</p>
-            <p style="text-align: center; padding-top: 400px;">75% Depth Area</p>
+    <div class="container">
+        <div class="hero">
+            <h2>Unlock Your Best Night's Sleep</h2>
+            <p>Our audit analyzes 24 unique data points to help you wake up refreshed.</p>
+            
+            <a href="#audit-results" class="btn" id="sleep-audit-btn" 
+               onclick="window.dataLayer = window.dataLayer || []; window.dataLayer.push({'event': 'sleep_audit_click'});">
+               Start My Sleep Audit
+            </a>
         </div>
 
-        <h2>Ready to improve?</h2>
-        <p>Contact us to learn more about our sleep programs.</p>
+        <section>
+            <h3>Why Sleep Matters</h3>
+            <p>Quality sleep is the foundation of health. Our research shows that 75% of high-performers optimize their sleep environment.</p>
+            <div class="spacer">Scroll down to learn more about our methodology...</div>
+        </section>
+
+        <section id="methodology">
+            <h3>Our Methodology</h3>
+            <p>We use circadian rhythm tracking and environment variables to provide actionable insights.</p>
+            <div class="spacer">Keep scrolling to see the completion trigger...</div>
+        </section>
+
+        <section id="audit-results">
+            <h3>Audit Completion</h3>
+            <p>By reaching this point, you have completed the information phase of the Aurora Sleep Audit.</p>
+            <p>View our <a href="https://www.sleepfoundation.org" target="_blank">External Research Partners</a>.</p>
+        </section>
     </div>
 
     <footer>
-        <p>&copy; 2026 Aurora Sleep Project</p>
+        <p>&copy; 2024 Aurora Sleep Project | Built for Analytics Implementation</p>
     </footer>
-
 </body>
 </html>
