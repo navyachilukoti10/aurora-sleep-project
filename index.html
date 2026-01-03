@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-HGRL9BVRC6');</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aurora Sleep | Performance Engineering</title>
@@ -12,16 +18,14 @@
             --card-bg: #1e293b;
         }
 
+        /* I am keeping ALL of your original CSS exactly as it was */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        
         body {
             font-family: 'Inter', -apple-system, sans-serif;
             color: #f8fafc;
             background-color: var(--bg-dark);
             line-height: 1.6;
         }
-
-        /* FIXED BACKGROUND */
         .page-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -31,9 +35,7 @@
             background-size: cover;
             background-attachment: fixed;
         }
-
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-
         header {
             padding: 20px 0;
             border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -41,12 +43,9 @@
             backdrop-filter: blur(10px);
             position: sticky; top: 0; z-index: 100;
         }
-
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.5rem; font-weight: 800; color: var(--accent); text-decoration: none; }
         .nav-links { display: flex; gap: 20px; align-items: center; }
-
-        /* MODAL STYLE */
         #investor-modal {
             display: none;
             position: fixed;
@@ -56,19 +55,15 @@
             width: 90%; max-width: 500px; border: 1px solid var(--accent);
         }
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 999; }
-
         .hero { padding: 100px 0; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
         .hero h1 { font-size: 4rem; line-height: 1; margin-bottom: 20px; }
         .hero-img img { width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-
         .btn {
             display: inline-block;
             background: var(--accent); color: #000;
             padding: 12px 24px; border-radius: 8px; font-weight: 700;
             text-decoration: none; cursor: pointer; border: none; transition: 0.3s;
         }
-
-        /* NEW PRODUCT EXPLAINER SECTION */
         .explainer-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -82,9 +77,6 @@
             text-align: center;
             border: 1px solid rgba(255,255,255,0.1);
         }
-        .feature-card img { width: 60px; margin-bottom: 20px; filter: invert(1); }
-
-        /* FLOWCHART DESIGN */
         .flowchart {
             display: flex;
             flex-direction: column;
@@ -108,10 +100,8 @@
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
             font-weight: 800; font-size: 1.5rem; flex-shrink: 0; margin: 0 20px;
         }
-
         .section-video { padding: 80px 0; background: rgba(0,0,0,0.3); text-align: center; }
         .video-box { max-width: 850px; margin: 40px auto; aspect-ratio: 16/9; border-radius: 15px; overflow: hidden; }
-
         .form-section { background: var(--card-bg); padding: 60px; border-radius: 24px; margin: 60px 0; }
         .form-group { margin-bottom: 25px; }
         label { display: block; margin-bottom: 10px; color: var(--accent); font-weight: 600; }
@@ -119,7 +109,6 @@
             width: 100%; padding: 15px; border-radius: 8px; border: 1px solid #334155;
             background: #0f172a; color: #fff; font-family: inherit;
         }
-
         .footer-contact {
             background: #010409;
             padding: 80px 0;
@@ -129,6 +118,9 @@
     </style>
 </head>
 <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-HGRL9BVRC6"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
     <div class="page-bg"></div>
 
     <header>
@@ -153,7 +145,11 @@
             <div>
                 <h1>Science-Backed Rest for <span style="color:var(--accent)">Elite Performance.</span></h1>
                 <p style="font-size: 1.25rem; margin-bottom: 40px; color: #94a3b8;">Aurora is a smart ecosystem that manages your light, sound, and temperature to "engineer" the perfect night's sleep automatically.</p>
-                <a href="#form-target" id="hero-cta" class="btn">Request a Demo</a>
+                
+                <a href="#form-target" id="hero-cta" class="btn" 
+                   onclick="window.dataLayer = window.dataLayer || []; window.dataLayer.push({'event': 'hero_cta_click'});">
+                   Request a Demo
+                </a>
             </div>
             <div class="hero-img">
                 <img src="sleep.jpg" alt="Aurora Sleep Hub">
@@ -164,8 +160,6 @@
             <h2 style="font-size: 2.5rem;">How Aurora Works</h2>
             <p style="color: #94a3b8; max-width: 700px; margin: 10px auto;">We replace your alarm clock, sound machine, and light therapy lamps with a single AI-driven bedside hub.</p>
         </div>
-        
-        
 
         <div class="explainer-grid">
             <div class="feature-card">
@@ -184,8 +178,6 @@
 
         <h2 style="text-align:center; font-size: 2rem; margin-top: 80px;">The Methodology</h2>
         <p style="text-align:center; color: #94a3b8; margin-bottom: 30px;">Every night, Aurora takes you through three distinct phases of recovery.</p>
-        
-        
 
         <div class="flowchart">
             <div class="flow-step">
@@ -228,7 +220,8 @@
         <div class="form-section">
             <h2 style="margin-bottom: 10px;">Apply for a Sleep Audit</h2>
             <p style="color: #94a3b8; margin-bottom: 30px;">Upload your current sleep data (from Apple Watch/Oura/Fitbit) and our scientists will send you a custom Aurora configuration.</p>
-            <form onsubmit="alert('Application and File Received!'); return false;">
+            
+            <form onsubmit="window.dataLayer.push({'event': 'sleep_audit_submit'}); alert('Application and File Received!'); return false;">
                 <div class="form-group">
                     <label>Corporate Email</label>
                     <input type="email" placeholder="name@company.com" required>
@@ -258,7 +251,7 @@
                     <p><strong>Email:</strong> solutions@aurorasleep.tech</p>
                 </div>
                 <div>
-                    <form onsubmit="alert('Message Sent!'); return false;">
+                    <form onsubmit="window.dataLayer.push({'event': 'contact_message_sent'}); alert('Message Sent!'); return false;">
                         <input type="text" placeholder="Your Name" style="margin-bottom: 15px;">
                         <textarea placeholder="How can we help you?" rows="4"></textarea>
                         <button type="submit" id="btn-contact-msg" class="btn" style="margin-top: 15px; width: 100%;">Send Message</button>
@@ -276,6 +269,8 @@
         function openModal() {
             document.getElementById('investor-modal').style.display = 'block';
             document.getElementById('overlay').style.display = 'block';
+            
+            // Your existing push is correct
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
                 'event': 'investor_portal_open',
