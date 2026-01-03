@@ -19,12 +19,14 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body {
             font-family: 'Inter', -apple-system, sans-serif;
             color: #f8fafc;
             background-color: var(--bg-dark);
             line-height: 1.6;
         }
+
         .page-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -34,7 +36,9 @@
             background-size: cover;
             background-attachment: fixed;
         }
+
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
         header {
             padding: 20px 0;
             border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -42,9 +46,11 @@
             backdrop-filter: blur(10px);
             position: sticky; top: 0; z-index: 100;
         }
+
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.5rem; font-weight: 800; color: var(--accent); text-decoration: none; }
         .nav-links { display: flex; gap: 20px; align-items: center; }
+
         #investor-modal {
             display: none;
             position: fixed;
@@ -54,15 +60,18 @@
             width: 90%; max-width: 500px; border: 1px solid var(--accent);
         }
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 999; }
+
         .hero { padding: 100px 0; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
         .hero h1 { font-size: 4rem; line-height: 1; margin-bottom: 20px; }
         .hero-img img { width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+
         .btn {
             display: inline-block;
             background: var(--accent); color: #000;
             padding: 12px 24px; border-radius: 8px; font-weight: 700;
             text-decoration: none; cursor: pointer; border: none; transition: 0.3s;
         }
+
         .explainer-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -76,6 +85,7 @@
             text-align: center;
             border: 1px solid rgba(255,255,255,0.1);
         }
+
         .flowchart {
             display: flex;
             flex-direction: column;
@@ -99,8 +109,10 @@
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
             font-weight: 800; font-size: 1.5rem; flex-shrink: 0; margin: 0 20px;
         }
+
         .section-video { padding: 80px 0; background: rgba(0,0,0,0.3); text-align: center; }
         .video-box { max-width: 850px; margin: 40px auto; aspect-ratio: 16/9; border-radius: 15px; overflow: hidden; }
+
         .form-section { background: var(--card-bg); padding: 60px; border-radius: 24px; margin: 60px 0; }
         .form-group { margin-bottom: 25px; }
         label { display: block; margin-bottom: 10px; color: var(--accent); font-weight: 600; }
@@ -108,6 +120,7 @@
             width: 100%; padding: 15px; border-radius: 8px; border: 1px solid #334155;
             background: #0f172a; color: #fff; font-family: inherit;
         }
+
         footer { padding: 40px 0; text-align: center; opacity: 0.6; font-size: 0.9rem; }
     </style>
 </head>
