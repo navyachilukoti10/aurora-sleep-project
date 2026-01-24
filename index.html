@@ -5,8 +5,7 @@
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-   })(window,document,'script','dataLayer','GTM-PMJT2WC5'); </script>
-
+    })(window,document,'script','dataLayer','GTM-PMJT2WC5');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aurora Sleep | Performance Engineering</title>
@@ -16,26 +15,32 @@
             --accent: #38bdf8;
             --bg-dark: #020617;
             --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
         }
 
-        /* I am keeping ALL of your original CSS exactly as it was */
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            color: #f8fafc;
+            color: var(--text-main);
             background-color: var(--bg-dark);
             line-height: 1.6;
         }
+
         .page-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            background: linear-gradient(rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.9)), 
+            background: linear-gradient(rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.95)), 
                         url('https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-attachment: fixed;
         }
+
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
         header {
             padding: 20px 0;
             border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -43,9 +48,12 @@
             backdrop-filter: blur(10px);
             position: sticky; top: 0; z-index: 100;
         }
+
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--accent); text-decoration: none; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--accent); text-decoration: none; letter-spacing: -1px; }
         .nav-links { display: flex; gap: 20px; align-items: center; }
+
+        /* Modal Logic */
         #investor-modal {
             display: none;
             position: fixed;
@@ -53,68 +61,76 @@
             background: var(--card-bg);
             padding: 40px; border-radius: 12px; z-index: 1000;
             width: 90%; max-width: 500px; border: 1px solid var(--accent);
+            box-shadow: 0 0 50px rgba(56, 189, 248, 0.2);
         }
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 999; }
-        .hero { padding: 100px 0; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
-        .hero h1 { font-size: 4rem; line-height: 1; margin-bottom: 20px; }
-        .hero-img img { width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 999; backdrop-filter: blur(4px); }
+
+        /* Hero Section */
+        .hero { padding: 80px 0; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 20px; }
+        .hero-img img { width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); }
+
         .btn {
             display: inline-block;
             background: var(--accent); color: #000;
-            padding: 12px 24px; border-radius: 8px; font-weight: 700;
-            text-decoration: none; cursor: pointer; border: none; transition: 0.3s;
+            padding: 14px 28px; border-radius: 8px; font-weight: 700;
+            text-decoration: none; cursor: pointer; border: none; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3); opacity: 0.9; }
+
+        /* Explainer Grid - Now Responsive */
         .explainer-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin: 60px 0;
         }
         .feature-card {
-            background: rgba(255,255,255,0.05);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.03);
+            padding: 40px; border-radius: 20px; text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
         }
-        .flowchart {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            padding: 60px 0;
-            position: relative;
-        }
+        .feature-card:hover { border-color: var(--accent); background: rgba(255,255,255,0.06); }
+
+        /* Flowchart - Improved for Mobile */
+        .flowchart { display: flex; flex-direction: column; gap: 30px; padding: 40px 0; }
         .flow-step {
-            display: flex;
-            align-items: center;
-            background: rgba(30, 41, 59, 0.6);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            border-radius: 15px;
-            padding: 30px;
-            width: 80%;
-            margin: 0 auto;
+            display: flex; align-items: center;
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 20px; padding: 30px;
+            width: 100%; max-width: 900px; margin: 0 auto;
         }
-        .flow-step:nth-child(even) { margin-left: 10%; flex-direction: row-reverse; text-align: right; }
+        .flow-step:nth-child(even) { flex-direction: row-reverse; text-align: right; }
         .step-number {
-            background: var(--accent); color: #000; width: 50px; height: 50px;
+            background: var(--accent); color: #000; width: 45px; height: 45px;
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-weight: 800; font-size: 1.5rem; flex-shrink: 0; margin: 0 20px;
+            font-weight: 800; font-size: 1.2rem; flex-shrink: 0; margin: 0 25px;
         }
-        .section-video { padding: 80px 0; background: rgba(0,0,0,0.3); text-align: center; }
-        .video-box { max-width: 850px; margin: 40px auto; aspect-ratio: 16/9; border-radius: 15px; overflow: hidden; }
-        .form-section { background: var(--card-bg); padding: 60px; border-radius: 24px; margin: 60px 0; }
+
+        .section-video { padding: 100px 0; background: rgba(0,0,0,0.4); text-align: center; }
+        .video-box { max-width: 850px; margin: 40px auto; aspect-ratio: 16/9; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+
+        /* Forms */
+        .form-section { background: var(--card-bg); padding: clamp(30px, 5%, 60px); border-radius: 30px; margin: 80px 0; border: 1px solid rgba(255,255,255,0.05); }
         .form-group { margin-bottom: 25px; }
-        label { display: block; margin-bottom: 10px; color: var(--accent); font-weight: 600; }
+        label { display: block; margin-bottom: 10px; color: var(--accent); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
         input, textarea {
-            width: 100%; padding: 15px; border-radius: 8px; border: 1px solid #334155;
-            background: #0f172a; color: #fff; font-family: inherit;
+            width: 100%; padding: 16px; border-radius: 10px; border: 1px solid #334155;
+            background: #0f172a; color: #fff; font-family: inherit; font-size: 1rem;
         }
-        .footer-contact {
-            background: #010409;
-            padding: 80px 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
+        input:focus { outline: 2px solid var(--accent); border-color: transparent; }
+
+        .footer-contact { background: #010409; padding: 100px 0; border-top: 1px solid rgba(255,255,255,0.1); }
+        footer { padding: 40px 0; text-align: center; opacity: 0.5; font-size: 0.85rem; }
+
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; text-align: center; padding: 40px 0; }
+            .hero-img { order: -1; }
+            .flow-step, .flow-step:nth-child(even) { flex-direction: column; text-align: center; }
+            .step-number { margin: 0 0 20px 0; }
         }
-        footer { padding: 40px 0; text-align: center; opacity: 0.6; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -127,7 +143,7 @@
         <div class="container nav-flex">
             <a href="#" class="logo">AURORA.</a>
             <nav class="nav-links">
-                <button onclick="openModal()" style="background:none; border:none; color:#fff; cursor:pointer; font-weight:600;">Investor Relations</button>
+                <button onclick="openModal()" style="background:none; border:none; color:var(--text-dim); cursor:pointer; font-weight:600; transition:0.3s;">Investor Relations</button>
                 <a href="#contact-footer" class="btn">Contact Us</a>
             </nav>
         </div>
@@ -135,8 +151,12 @@
 
     <div class="modal-overlay" id="overlay" onclick="closeModal()"></div>
     <div id="investor-modal">
-        <h2>Corporate Snapshot</h2>
-        <p style="margin: 20px 0;">Q1 Revenue: +24% YoY<br>R&D Spend: $4.2M<br>Market Cap: $120M</p>
+        <h2 style="margin-bottom:10px;">Corporate Snapshot</h2>
+        <div style="background:rgba(0,0,0,0.2); padding:20px; border-radius:8px; margin: 20px 0; font-family: monospace;">
+            <p>Q1 Revenue: +24% YoY</p>
+            <p>R&D Spend: $4.2M</p>
+            <p>Market Cap: $120M</p>
+        </div>
         <button class="btn" onclick="closeModal()" style="width: 100%;">Close Portal</button>
     </div>
 
@@ -144,63 +164,62 @@
         <section class="hero">
             <div>
                 <h1>Science-Backed Rest for <span style="color:var(--accent)">Elite Performance.</span></h1>
-                <p style="font-size: 1.25rem; margin-bottom: 40px; color: #94a3b8;">Aurora is a smart ecosystem that manages your light, sound, and temperature to "engineer" the perfect night's sleep automatically.</p>
+                <p style="font-size: 1.2rem; margin-bottom: 40px; color: var(--text-dim);">Aurora is a smart ecosystem that manages your light, sound, and temperature to "engineer" the perfect night's sleep automatically.</p>
                 
-                <a href="#form-target" id="hero-cta" class="btn" 
-                   onclick="window.dataLayer = window.dataLayer || []; window.dataLayer.push({'event': 'hero_cta_click'});">
-                   Request a Demo
+                <a href="#form-target" class="btn" id="hero-cta-btn">
+                    Request a Demo
                 </a>
             </div>
             <div class="hero-img">
-                <img src="sleep.jpg" alt="Aurora Sleep Hub">
+                <img src="sleep.jpg" alt="Aurora Sleep - Morning Vitality">
             </div>
         </section>
 
-        <div style="text-align: center; margin-bottom: 40px;">
-            <h2 style="font-size: 2.5rem;">How Aurora Works</h2>
-            <p style="color: #94a3b8; max-width: 700px; margin: 10px auto;">We replace your alarm clock, sound machine, and light therapy lamps with a single AI-driven bedside hub.</p>
+        <div style="text-align: center; margin: 60px 0 20px 0;">
+            <h2 style="font-size: 2.5rem;">The Hardware</h2>
+            <p style="color: var(--text-dim); max-width: 700px; margin: 10px auto;">Medical-grade technology, designed for the bedroom.</p>
         </div>
 
         <div class="explainer-grid">
             <div class="feature-card">
-                <h3>Bio-Lighting</h3>
-                <p>The Hub changes its light color to trigger your brain's natural "Sleep" and "Wake" hormones without chemicals.</p>
+                <h3 style="color:var(--accent); margin-bottom:15px;">Bio-Lighting</h3>
+                <p>The Hub adjusts color temperature to modulate melatonin production without pharmaceutical intervention.</p>
             </div>
             <div class="feature-card">
-                <h3>Radar Sensing</h3>
-                <p>No wearable needed. Our medical-grade radar tracks your heart rate and breathing through the air.</p>
+                <h3 style="color:var(--accent); margin-bottom:15px;">Radar Sensing</h3>
+                <p>Contactless vitals tracking. Our ultra-wideband radar monitors heart-rate variability (HRV) through the air.</p>
             </div>
             <div class="feature-card">
-                <h3>Smart Audio</h3>
-                <p>Built-in speakers emit specific sound frequencies to block outside noise and keep your brain in deep sleep.</p>
+                <h3 style="color:var(--accent); margin-bottom:15px;">Smart Audio</h3>
+                <p>Adaptive pink noise cancellation that reacts in real-time to external sound spikes in your environment.</p>
             </div>
         </div>
 
-        <h2 style="text-align:center; font-size: 2rem; margin-top: 80px;">The Methodology</h2>
-        <p style="text-align:center; color: #94a3b8; margin-bottom: 30px;">Every night, Aurora takes you through three distinct phases of recovery.</p>
+        
 
+        <h2 style="text-align:center; font-size: 2rem; margin-top: 100px;">The Methodology</h2>
         <div class="flowchart">
             <div class="flow-step">
                 <div class="step-number">1</div>
                 <div>
-                    <h3>Melatonin suppression (Morning)</h3>
-                    <p>Aurora emits high-intensity 480nm blue light. This stops your brain from feeling groggy and resets your internal clock for peak energy during the work day.</p>
+                    <h3>Circadian Reset (Morning)</h3>
+                    <p>Aurora emits 480nm blue-enriched light to suppress melatonin and anchor your internal clock for daytime alertness.</p>
                 </div>
             </div>
             
             <div class="flow-step">
                 <div class="step-number">2</div>
                 <div>
-                    <h3>REM Cycle Stabilization (Middle Night)</h3>
-                    <p>When the Hub detects you are dreaming, it creates a "Sound Cocoon" using pink noise, ensuring that street noises don't wake you up.</p>
+                    <h3>REM Stabilization (Night)</h3>
+                    <p>When our sensors detect rapid eye movement, Aurora activates a "Sound Cocoon" to isolate the brain from disturbances.</p>
                 </div>
             </div>
 
             <div class="flow-step">
                 <div class="step-number">3</div>
                 <div>
-                    <h3>Deep Sleep Recovery (Early Night)</h3>
-                    <p>By communicating with your thermostat to lower the room to 18°C, Aurora encourages the "N3" sleep stage where your body physically repairs itself.</p>
+                    <h3>Thermal Recovery (N3 Stage)</h3>
+                    <p>Aurora triggers your smart thermostat to drop the ambient temperature to 18°C, facilitating the deep N3 physical repair stage.</p>
                 </div>
             </div>
         </div>
@@ -208,10 +227,10 @@
 
     <section class="section-video">
         <div class="container">
-            <h2>Why Your Sleep Schedule Matters</h2>
-            <p style="color: #94a3b8; margin-bottom: 20px;">Understand the biological impact of irregular rest cycles.</p>
+            <h2>The Biology of Sleep</h2>
+            <p style="color: var(--text-dim); margin-bottom: 20px;">Why inconsistent rest is the hidden bottleneck in executive performance.</p>
             <div class="video-box">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/5MuIMqhT8DM" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/5MuIMqhT8DM" title="Aurora Sleep Science" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </section>
@@ -219,42 +238,36 @@
     <div class="container" id="form-target">
         <div class="form-section">
             <h2 style="margin-bottom: 10px;">Apply for a Sleep Audit</h2>
-            <p style="color: #94a3b8; margin-bottom: 30px;">Upload your current sleep data (from Apple Watch/Oura/Fitbit) and our scientists will send you a custom Aurora configuration.</p>
+            <p style="color: var(--text-dim); margin-bottom: 30px;">Upload your telemetry from Apple Watch, Oura, or Fitbit for a personalized configuration report.</p>
             
-            <form onsubmit="window.dataLayer.push({'event': 'sleep_audit_submit'}); alert('Application and File Received!'); return false;">
+            <form id="sleep-audit-form">
                 <div class="form-group">
                     <label>Corporate Email</label>
-                    <input type="email" placeholder="name@company.com" required>
+                    <input type="email" id="audit-email" placeholder="name@company.com" required>
                 </div>
                 <div class="form-group">
-                    <label>Attach your Sleep Data File (PDF/CSV/JPG)</label>
-                    <input type="file" id="form-attachment" required>
+                    <label>Sleep Data File (PDF/CSV)</label>
+                    <input type="file" id="audit-file" accept=".pdf,.csv,.jpg" required>
                 </div>
-                <button type="submit" id="btn-submit-form" class="btn" style="width: 100%;">Submit for Review</button>
+                <button type="submit" id="btn-submit-audit" class="btn" style="width: 100%;">Submit for Review</button>
             </form>
-            
-            <div style="margin-top: 40px; text-align: center; border-top: 1px solid #334155; padding-top: 30px;">
-                <p>Want to see the research? 
-                    <a href="Aurora_Product_Whitepaper_2026.pdf" target="_blank" style="color:var(--accent);">Download Clinical Whitepaper (PDF)</a>
-                </p>
-            </div>
         </div>
     </div>
 
     <section class="footer-contact" id="contact-footer">
         <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px;">
                 <div>
-                    <h2 style="color: var(--accent);">Get in Touch</h2>
-                    <p style="margin: 20px 0;">Interested in a corporate partnership or bulk orders for your executive team?</p>
-                    <p><strong>Office:</strong> 450 Sleepy Hollow, San Francisco, CA</p>
+                    <h2 style="color: var(--accent);">Inquiries</h2>
+                    <p style="margin: 20px 0; color: var(--text-dim);">Global headquarters for corporate partnerships and fleet deployments.</p>
+                    <p><strong>HQ:</strong> 450 Sleepy Hollow, San Francisco, CA</p>
                     <p><strong>Email:</strong> solutions@aurorasleep.tech</p>
                 </div>
                 <div>
-                    <form onsubmit="window.dataLayer.push({'event': 'contact_message_sent'}); alert('Message Sent!'); return false;">
-                        <input type="text" placeholder="Your Name" style="margin-bottom: 15px;">
-                        <textarea placeholder="How can we help you?" rows="4"></textarea>
-                        <button type="submit" id="btn-contact-msg" class="btn" style="margin-top: 15px; width: 100%;">Send Message</button>
+                    <form id="general-contact">
+                        <input type="text" placeholder="Full Name" style="margin-bottom: 15px;" required>
+                        <textarea placeholder="Message" rows="4" required></textarea>
+                        <button type="submit" class="btn" style="margin-top: 15px; width: 100%;">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -262,26 +275,47 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 Aurora Sleep Technologies. Professional Portfolio Project.</p>
+        <p>&copy; 2026 Aurora Sleep Technologies. <br>Professional Portfolio Prototype.</p>
     </footer>
 
     <script>
+        // Modal Handlers
         function openModal() {
             document.getElementById('investor-modal').style.display = 'block';
             document.getElementById('overlay').style.display = 'block';
-            
-            // Your existing push is correct
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-                'event': 'investor_portal_open',
-                'category': 'corporate_interaction'
-            });
+            window.dataLayer.push({'event': 'investor_portal_open', 'category': 'corporate'});
         }
         function closeModal() {
             document.getElementById('investor-modal').style.display = 'none';
             document.getElementById('overlay').style.display = 'none';
         }
-    </script>
 
+        // Form Submission Handlers
+        document.getElementById('sleep-audit-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-submit-audit');
+            const originalText = btn.innerText;
+            
+            btn.innerText = "Analyzing Telemetry...";
+            btn.disabled = true;
+
+            window.dataLayer.push({
+                'event': 'sleep_audit_submit',
+                'user_email': document.getElementById('audit-email').value
+            });
+
+            setTimeout(() => {
+                alert('Data received. Your customized report will be sent to your corporate email.');
+                btn.innerText = originalText;
+                btn.disabled = false;
+                this.reset();
+            }, 2000);
+        });
+
+        // CTA Tracking
+        document.getElementById('hero-cta-btn').addEventListener('click', function() {
+            window.dataLayer.push({'event': 'hero_cta_click'});
+        });
+    </script>
 </body>
 </html>
